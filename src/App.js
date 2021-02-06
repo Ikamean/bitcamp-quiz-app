@@ -1,24 +1,44 @@
-import logo from './logo.svg';
 import './App.css';
+import React from 'react'
+import CategorysPage from './pages/categoryList'
+import Difficulty from './pages/difficulty'
+import QuestionList from './pages/questionList'
+import Result from './pages/result'
+import { Switch, Route } from "react-router-dom";
+import StartPage from './pages/startPage'
+
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+      <Switch>
+
+        <Route exact path='/'>
+          <StartPage />
+        </Route>
+
+        <Route exact path='/category'>
+          <CategorysPage />
+        </Route>
+
+        <Route exact path='/difficulty'>
+          <Difficulty />
+        </Route>
+
+
+        <Route exact path='/questions'>
+          <QuestionList />
+        </Route>
+
+        <Route exact path='/result'>
+          <Result/>
+        </Route>
+
+      </Switch>
+
+
+      </>
   );
 }
 
